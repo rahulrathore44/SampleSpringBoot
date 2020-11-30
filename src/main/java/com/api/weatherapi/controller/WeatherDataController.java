@@ -1,5 +1,8 @@
 package com.api.weatherapi.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -13,9 +16,13 @@ import com.api.weatherapi.controller.impl.WeatherDetailsImpl;
 import com.api.weatherapi.exceptions.UnsupportedException;
 
 @RestController
+@ComponentScan("com.api.weatherapi.controller.impl")
 public class WeatherDataController {
 
-	private WeatherDetails weatherDetails = new WeatherDetailsImpl();
+	@Autowired
+	@Qualifier("weatherDetailsImpl")
+	private WeatherDetails weatherDetails;
+	//private WeatherDetails weatherDetails = new WeatherDetailsImpl();
 
 	@RequestMapping(path = { "/TempInCelsius" }, method = { RequestMethod.GET }, produces = {
 			MediaType.APPLICATION_JSON_VALUE })

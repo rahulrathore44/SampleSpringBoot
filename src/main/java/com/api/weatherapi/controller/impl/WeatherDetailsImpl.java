@@ -4,12 +4,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import com.api.weatherapi.converter.Unit;
 import com.api.weatherapi.converter.impl.CelsiusImpl;
 import com.api.weatherapi.converter.impl.FahrenheitImpl;
 import com.api.weatherapi.converter.type.ConversionType;
 import com.api.weatherapi.exceptions.UnsupportedException;
 
+@Component
 public class WeatherDetailsImpl implements WeatherDetails {
 
 	@Override
