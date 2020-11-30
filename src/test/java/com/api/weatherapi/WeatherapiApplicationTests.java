@@ -66,7 +66,7 @@ public class WeatherapiApplicationTests {
 	}
 
 	@Test
-	public void test_get_data_for_lastsevendays_with_invalid_type_should_return_400() throws Exception {
+	public void test_get_data_for_lastsevendays_with_invalid_type_should_return_500() throws Exception {
 		mvc.perform(get("/LastSevenDaysTemp").accept(APPLICATION_JSON_VALUE).queryParam("type", "a"))
 				.andExpect(status().isInternalServerError());
 	}
